@@ -18,6 +18,8 @@ def loginPage(request):
     if request.method == "POST":
         form = AuthenticationForm(request=request, data=request.POST)
         if form.is_valid():
+            # Refactoring: saving form after creation
+            form.save()
             username = request.POST.get('username')
             password = request.POST.get('password')
             user = authenticate(request, username=username, password=password)
