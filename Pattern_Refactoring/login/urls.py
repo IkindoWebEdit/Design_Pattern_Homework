@@ -1,10 +1,11 @@
-from django.urls import path
+from django.conf.urls import url, patterns
 
 from . import views
 
-
-urlpatterns = [
-    path('login/', views.loginPage_GET, name="login"),
-    path('login/', views.loginPage_POST, name="login"),
-    path('logout/', views.logoutAction, name="logout")
-]
+# Refactoring: used patterns instead of paths
+urlpatterns = patterns(
+    'login.views',
+    url(r'^$', 'loginPage_GET'),
+    url(r'^$', 'loginPage_POST'),
+    url(r'^logout/$', 'logoutAction')
+)
