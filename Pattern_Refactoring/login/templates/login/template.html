@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+<!-- Refactoring: extended base.html -->
+{% block head %}
+{% block navbar %}
+{% for message in messages %}
+    <p>
+        <label id=invalidInput style="color:#ff0000">{{ message }}</label>
+    </p>
+{% endfor %}
+{% block footer %}
+{% block scripts %}
