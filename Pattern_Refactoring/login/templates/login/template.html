@@ -5,6 +5,9 @@
 {% for message in messages %}
     <p>
         <label id=invalidInput style="color:#ff0000">{{ message }}</label>
+        <!-- Refactoring: caught empty iterable -->
+        {% empty %}
+        <label id=invalidInput style="color:#ff0000">pls enter your login information </label>
     </p>
 {% endfor %}
 {% block footer %}
